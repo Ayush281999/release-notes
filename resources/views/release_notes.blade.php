@@ -1,6 +1,4 @@
-@extends('layouts.app')
 
-@section('content')
     <div class="container">
         <h1>Release Notes</h1>
         <table class="table">
@@ -22,4 +20,3 @@
             </tbody>
         </table>
     </div>
-@endsection
