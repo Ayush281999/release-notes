@@ -26,7 +26,7 @@ class WebhookController extends Controller
     private function fetchReleaseData($tagName)
     {
         $client = new \GuzzleHttp\Client();
-        $response = $client->get('https://api.github.com/repos/your-username/your-repository/releases/tags/' . $tagName, [
+        $response = $client->get('https://api.github.com/repos/Ayush281999/release-notes/releases/tags/' . $tagName, [
             'headers' => [
                 'Authorization' => 'Bearer ' . env('GITHUB_PAT'),
             ],
