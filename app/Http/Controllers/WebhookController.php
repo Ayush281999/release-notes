@@ -16,7 +16,7 @@ class WebhookController extends Controller
             $releaseData = $this->fetchReleaseData($tagName);
             ReleaseNote::create([
                 'version' => $tagName,
-                'details' => 'No release notes provided.',
+                'details' => $releaseData['body'] ?? 'No release notes provided.',
             ]);
         }
 
