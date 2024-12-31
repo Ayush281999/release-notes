@@ -9,9 +9,7 @@ class WebhookController extends Controller
 {
     public function handleWebhook(Request $request)
     {
-        dd("Ayush");
         $payload = $request->all();
-
         if (isset($payload['ref_type']) && $payload['ref_type'] === 'tag') {
             $tagName = $payload['ref']; // Get the tag name
             $releaseData = $this->fetchReleaseData($tagName);
