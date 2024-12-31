@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ReleaseNote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class WebhookController extends Controller
 {
@@ -13,7 +14,7 @@ class WebhookController extends Controller
         if (isset($payload['ref_type']) && $payload['ref_type'] === 'tag') {
             $tagName = $payload['ref']; // Get the tag name
             $releaseData = $this->fetchReleaseData($tagName);
-
+            Log::info('Release data: ' . json_encode($releaseData));
             ReleaseNote::create([
                 'version' => $tagName,
                 'details' => $releaseData['body'] ?? 'No release notes provided.',
